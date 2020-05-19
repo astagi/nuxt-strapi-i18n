@@ -1,4 +1,5 @@
 import BlogClient from './services'
+import i18nConfig from './i18n.config'
 
 const LOCALES = ['en', 'es', 'it']
 const DEFAULT_LOCALE = 'en'
@@ -71,19 +72,11 @@ export default {
   i18n: {
     locales: LOCALES,
     defaultLocale: DEFAULT_LOCALE,
+    parsePages: false,
+    pages: i18nConfig.pages,
     vueI18n: {
       fallbackLocale: DEFAULT_LOCALE,
-      messages: {
-        en: {
-          readmore: 'Read more'
-        },
-        es: {
-          readmore: 'Lee mas'
-        },
-        it: {
-          readmore: 'Leggi di più'
-        }
-      }
+      messages: i18nConfig.messages
     }
   },
   generate: {
@@ -95,7 +88,7 @@ export default {
         postsData = await client.getAllPosts(locale)
         routes = routes.concat(postsData.data.transPosts.map((post) => {
           return {
-            route: `${locale === DEFAULT_LOCALE ? '' : locale}/blog/${post.slug}`,
+            route: `${locale === DEFAULT_LOCALE ? '' : locale}${i18nConfig.pages['blog/_slug'][locale].replace(':slug', post.slug)}`,
             payload: post
           }
         }))
