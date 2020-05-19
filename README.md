@@ -1,6 +1,6 @@
 # JAMStack multilanguage blog with Nuxt.js
 
-> 📝 Use Nuxt.js + Strapi to build a multilingual static blog
+> 📝 Use Nuxt.js + Strapi to build a JAMStack multilanguage blog
 
 ## Build Setup
 
