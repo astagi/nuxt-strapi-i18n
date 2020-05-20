@@ -16,7 +16,7 @@
             height="28"
           >
         </a>
-        <language-switch />
+        <language-switcher />
       </div>
     </nav>
 
@@ -49,11 +49,11 @@
 
 <script>
 
-import LanguageSwitch from '~/components/LanguageSwitch'
+import LanguageSwitcher from '~/components/LanguageSwitcher'
 
 export default {
   components: {
-    LanguageSwitch
+    LanguageSwitcher
   },
   data () {
     return {
@@ -71,3 +71,9 @@ export default {
   }
 }
 </script>
+
+<style>
+h1, h2 {
+  font-size: none;
+}
+</style>

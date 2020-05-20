@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="is-mobile">
+    <div class="is-fluid">
       <h2>{{ post.title }}</h2>
       <vue-markdown>{{ post.content }}</vue-markdown>
     </div>
