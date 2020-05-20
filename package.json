@@ -15,10 +15,12 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/sitemap": "^2.3.0",
     "apollo-fetch": "^0.7.0",
+    "babel-runtime": "^6.26.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "nuxt-i18n": "^6.11.1",
-    "nuxt-payload-extractor": "^1.0.0"
+    "nuxt-payload-extractor": "^1.0.0",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

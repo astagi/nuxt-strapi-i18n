@@ -2,12 +2,14 @@
   <section class="section">
     <div class="is-mobile">
       <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
+      <vue-markdown>{{ post.content }}</vue-markdown>
     </div>
   </section>
 </template>
 
 <script>
+
+import VueMarkdown from 'vue-markdown'
 
 const getSinglePostFromContext = async ({ $axios, $payloadURL, app, route, store, payload }) => {
   if (payload) {
@@ -26,6 +28,9 @@ const getSinglePostFromContext = async ({ $axios, $payloadURL, app, route, store
 
 export default {
   name: 'BlogPost',
+  components: {
+    'vue-markdown': VueMarkdown
+  },
   async asyncData (context) {
     const singlePost = await getSinglePostFromContext(context)
     await context.store.dispatch(

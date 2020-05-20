@@ -1,4 +1,4 @@
-import BlogClient from '~/services/'
+import BlogClient from '~/services'
 
 export default ({ app }, inject) => {
   app.$blogClient = new BlogClient()
