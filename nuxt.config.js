@@ -1,8 +1,22 @@
 import BlogClient from './services'
 import i18nConfig from './i18n.config'
 
-const LOCALES = ['en', 'es', 'it']
+const LOCALES = [
+  {
+    code: 'en',
+    iso: 'en-US'
+  },
+  {
+    code: 'es',
+    iso: 'es-ES'
+  },
+  {
+    code: 'it',
+    iso: 'it-IT'
+  }
+]
 const DEFAULT_LOCALE = 'en'
+const BASE_URL = process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000'
 
 export default {
   mode: 'universal',
@@ -51,7 +65,9 @@ export default {
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt-community/sitemap-module
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Axios module configuration
@@ -70,10 +86,12 @@ export default {
     }
   },
   i18n: {
+    baseUrl: BASE_URL,
     locales: LOCALES,
     defaultLocale: DEFAULT_LOCALE,
     parsePages: false,
     pages: i18nConfig.pages,
+    seo: false,
     vueI18n: {
       fallbackLocale: DEFAULT_LOCALE,
       messages: i18nConfig.messages
@@ -85,15 +103,20 @@ export default {
       let routes = []
       let postsData = []
       for (const locale of LOCALES) {
-        postsData = await client.getAllPosts(locale)
+        postsData = await client.getAllPosts(locale.code)
         routes = routes.concat(postsData.data.transPosts.map((post) => {
           return {
-            route: `${locale === DEFAULT_LOCALE ? '' : locale}${i18nConfig.pages['blog/_slug'][locale].replace(':slug', post.slug)}`,
+            route: `${locale.code === DEFAULT_LOCALE ? '' : locale.code}${i18nConfig.pages['blog/_slug'][locale.code].replace(':slug', post.slug)}`,
             payload: post
           }
         }))
       }
       return routes
     }
+  },
+  sitemap: {
+    hostname: BASE_URL,
+    gzip: true,
+    i18n: DEFAULT_LOCALE
   }
 }

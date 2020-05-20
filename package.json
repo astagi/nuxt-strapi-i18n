@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/sitemap": "^2.3.0",
     "apollo-fetch": "^0.7.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
