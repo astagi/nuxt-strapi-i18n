@@ -37,6 +37,9 @@ export default class BlogClient {
           content
           post {
             published
+            author {
+              complete_name
+            }
             transPosts(where: {lang_ne: $lang}) {
               slug
               lang
