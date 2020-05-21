@@ -54,7 +54,7 @@ export default {
       if (this.post.cover) {
         return `${process.env.NUXT_ENV_BACKEND_URL}${this.post.cover.url}`
       } else {
-        return 'https://loremflickr.com/1280/720/world'
+        return 'https://loremflickr.com/1280/720/computer'
       }
     }
   },
