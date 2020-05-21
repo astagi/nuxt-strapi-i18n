@@ -7,8 +7,8 @@ export default {
     },
     es: {
       readmore: 'Lee mas',
-      author: 'Author',
-      published: 'Date'
+      author: 'Autor',
+      published: 'Publicado el'
     },
     it: {
       readmore: 'Leggi di più',

@@ -6,32 +6,25 @@
       aria-label="main navigation"
     >
       <div class="navbar-brand">
-        <a
+        <nuxt-link
           class="navbar-item"
+          :to="localePath({ name: 'index' })"
         >
           <img
             src="https://pngimg.com/uploads/jam/jam_PNG93.png"
             alt="Buefy"
             height="28"
-          >
-        </a>
+          > <span class="blogtitle">JAMBlog</span>
+        </nuxt-link>
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <language-switcher />
-          <nuxt-link
-            v-for="(item, key) of items"
-            :key="key"
-            class="navbar-item"
-            :to="localePath(item.to)"
-            exact-active-class="is-active"
-          >{{ item.title }}
-          </nuxt-link>
         </div>
       </div>
     </nav>
 
-    <section class="main-content columns">
+    <section class="main-content">
       <div class="container column is-12">
         <nuxt />
       </div>
@@ -65,8 +58,7 @@ export default {
 </script>
 
 <style>
-h1, h2 {
-  font-weight: bold;
-  font-size: xx-large;
+.blogtitle {
+  margin-left: 0.5rem;
 }
 </style>
