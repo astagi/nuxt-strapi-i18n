@@ -1,8 +1,10 @@
 <template>
   <section class="section">
-    <div class="is-fluid">
+    <div class="is-mobile">
       <div v-for="post in posts" :key="post.slug">
         <h1>{{ post.title }}</h1>
+        <div>{{ $t('author') }} <b>{{ post.post.author.complete_name }}</b></div>
+        <div>{{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp }}</b></div>
         <nuxt-link :to="localePath({name: 'blog-slug', params:{slug: post.slug}})">{{ $t('readmore') }}</nuxt-link>
       </div>
     </div>

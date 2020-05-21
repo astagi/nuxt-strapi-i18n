@@ -1,13 +1,19 @@
 export default {
   messages: {
     en: {
-      readmore: 'Read more'
+      readmore: 'Read more',
+      author: 'Author',
+      published: 'Published on'
     },
     es: {
-      readmore: 'Lee mas'
+      readmore: 'Lee mas',
+      author: 'Author',
+      published: 'Date'
     },
     it: {
-      readmore: 'Leggi di più'
+      readmore: 'Leggi di più',
+      author: 'Autore',
+      published: 'Pubblicato il'
     }
   },
   pages: {

@@ -10,7 +10,13 @@ export default class BlogClient {
       query AllPosts($lang: String!) {
         transPosts(where: {lang: $lang}) {
           slug
-          title
+          title,
+          post {
+            published
+            author {
+              complete_name
+            }
+          }
         }
       }
     `
@@ -56,6 +62,12 @@ export default class BlogClient {
           content
           post {
             published
+            author {
+              complete_name,
+              image {
+                url
+              }
+            }
             transPosts(where: {lang_ne: $lang}) {
               slug
               lang

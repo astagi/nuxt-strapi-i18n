@@ -8,39 +8,31 @@
       <div class="navbar-brand">
         <a
           class="navbar-item"
-          href="/"
         >
           <img
-            src="~assets/buefy.png"
+            src="https://pngimg.com/uploads/jam/jam_PNG93.png"
             alt="Buefy"
             height="28"
           >
         </a>
-        <language-switcher />
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <language-switcher />
+          <nuxt-link
+            v-for="(item, key) of items"
+            :key="key"
+            class="navbar-item"
+            :to="localePath(item.to)"
+            exact-active-class="is-active"
+          >{{ item.title }}
+          </nuxt-link>
+        </div>
       </div>
     </nav>
 
     <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">
-          General
-        </p>
-        <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <nuxt-link
-              :to="localePath(item.to)"
-              exact-active-class="is-active"
-            >
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </aside>
-
-      <div class="container column is-10">
+      <div class="container column is-12">
         <nuxt />
       </div>
     </section>
@@ -74,6 +66,7 @@ export default {
 
 <style>
 h1, h2 {
-  font-size: none;
+  font-weight: bold;
+  font-size: xx-large;
 }
 </style>

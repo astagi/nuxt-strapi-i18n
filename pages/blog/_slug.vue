@@ -2,6 +2,7 @@
   <section class="section">
     <div class="is-fluid">
       <h2>{{ post.title }}</h2>
+      <div>{{ $t('author') }} <b>{{ post.post.author.complete_name }}</b> {{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp }}</b></div>
       <vue-markdown>{{ post.content }}</vue-markdown>
     </div>
   </section>
