@@ -91,6 +91,7 @@ export default {
     defaultLocale: DEFAULT_LOCALE,
     parsePages: false,
     pages: i18nConfig.pages,
+    encodePaths: false,
     seo: false,
     vueI18n: {
       fallbackLocale: DEFAULT_LOCALE,
@@ -106,7 +107,7 @@ export default {
         postsData = await client.getAllPosts(locale.code)
         routes = routes.concat(postsData.data.transPosts.map((post) => {
           return {
-            route: `${locale.code === DEFAULT_LOCALE ? '' : locale.code}${i18nConfig.pages['blog/_slug'][locale.code].replace(':slug', post.slug)}`,
+            route: `${locale.code === DEFAULT_LOCALE ? '' : '/' + locale.code}${i18nConfig.pages['blog/_slug'][locale.code].replace(':slug', post.slug)}`,
             payload: post
           }
         }))
