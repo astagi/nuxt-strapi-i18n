@@ -1,7 +1,7 @@
 {
   "name": "multilangblog",
   "version": "1.0.0",
-  "description": "My wonderful Nuxt.js project",
+  "description": "My wonderful JAMBlog",
   "author": "Andrea Stagi",
   "private": true,
   "scripts": {

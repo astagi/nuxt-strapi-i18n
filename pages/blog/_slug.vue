@@ -2,6 +2,8 @@
   <section class="section">
     <div class="is-fluid">
       <h2>{{ post.title }}</h2>
+      <h3>{{ post.subtitle }}</h3>
+      <img :src="absoluteCoverImage">
       <div>{{ $t('author') }} <b>{{ post.post.author.complete_name }}</b> {{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp }}</b></div>
       <vue-markdown>{{ post.content }}</vue-markdown>
     </div>
@@ -45,6 +47,24 @@ export default {
   data () {
     return {
       post: null
+    }
+  },
+  computed: {
+    absoluteCoverImage () {
+      if (this.post.cover) {
+        return `${process.env.NUXT_ENV_BACKEND_URL}${this.post.cover.url}`
+      } else {
+        return 'https://loremflickr.com/1280/720/world'
+      }
+    }
+  },
+  head () {
+    return {
+      title: this.post.title,
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: this.post.title },
+        { hid: 'og:image', name: 'og:image', content: this.absoluteCoverImage }
+      ]
     }
   }
 }

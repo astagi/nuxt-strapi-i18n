@@ -2,7 +2,7 @@ import { createApolloFetch } from 'apollo-fetch'
 
 export default class BlogClient {
   constructor () {
-    this.apolloFetch = createApolloFetch({ uri: process.env.NUXT_ENV_BACKEND_URL })
+    this.apolloFetch = createApolloFetch({ uri: `${process.env.NUXT_ENV_BACKEND_URL}/graphql` })
   }
 
   getAllPostsHead (lang) {
@@ -34,11 +34,18 @@ export default class BlogClient {
         transPosts(where: {lang: $lang}) {
           slug
           title
+          subtitle
           content
+          cover {
+            url
+          }
           post {
             published
             author {
               complete_name
+              image {
+                url
+              }
             }
             transPosts(where: {lang_ne: $lang}) {
               slug
@@ -62,7 +69,11 @@ export default class BlogClient {
         transPosts(where: {slug : $slug, lang: $lang}) {
           slug
           title
+          subtitle
           content
+          cover {
+            url
+          }
           post {
             published
             author {
