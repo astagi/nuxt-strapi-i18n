@@ -2,6 +2,8 @@
 
 > 📝 Use Nuxt.js + Strapi to build a JAMStack multilanguage blog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98739ae5-8f73-4f67-be35-d5c71aae91fa/deploy-status)](https://app.netlify.com/sites/eager-shockley-a415b7/deploys)
+
 ## Build Setup
 
 ```bash
