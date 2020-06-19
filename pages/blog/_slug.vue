@@ -28,16 +28,11 @@
 
 import VueMarkdown from 'vue-markdown'
 
-const getSinglePostFromContext = async ({ $axios, $payloadURL, app, route, store, payload }) => {
+const getSinglePostFromContext = async ({ app, route, store, payload }) => {
   if (payload) {
     return payload
   }
-  let postsData = null
-  if (process.static && process.client && $payloadURL) {
-    postsData = await $axios.$get($payloadURL(route))
-    return postsData.post
-  }
-  postsData = await app.$blogClient.getSinglePost(
+  const postsData = await app.$blogClient.getSinglePost(
     route.params.slug, store.$i18n.locale
   )
   return postsData.data.transPosts[0]

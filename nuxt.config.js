@@ -20,6 +20,7 @@ const BASE_URL = process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000'
 
 export default {
   mode: 'universal',
+  target: 'static',
   /*
   ** Headers of the page
   */
@@ -63,8 +64,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/DreaMinder/nuxt-payload-extractor
-    'nuxt-payload-extractor',
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
     // Doc: https://buefy.github.io/#/documentation

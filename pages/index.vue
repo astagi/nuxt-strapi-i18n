@@ -12,10 +12,7 @@
 <script>
 export default {
   name: 'HomePage',
-  async asyncData ({ $axios, $payloadURL, app, route, store }) {
-    if (process.static && process.client && $payloadURL) {
-      return await $axios.$get($payloadURL(route))
-    }
+  async asyncData ({ app, route, store }) {
     const postsData = await app.$blogClient.getAllPostsHead(
       store.$i18n.locale
     )
