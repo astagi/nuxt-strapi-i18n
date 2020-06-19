@@ -15,10 +15,13 @@ $ yarn dev
 
 # build for production and launch server
 $ yarn build
-$ yarn start
 
-# generate static project
-$ yarn generate
+# generate full static site
+$ yarn export
+
+# serve
+
+yarn serve
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
