@@ -103,6 +103,7 @@ export default {
     }
   },
   generate: {
+    crawler: false,
     routes: async () => {
       const client = new BlogClient()
       let routes = []
