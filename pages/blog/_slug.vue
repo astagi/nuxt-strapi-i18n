@@ -14,7 +14,9 @@
         </div>
         <div class="media-content">
           <p class="title is-4">{{ $t('author') }}: <b>{{ post.post.author.complete_name }}</b></p>
-          <p class="subtitle is-6">{{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp }}</b></p>
+          <client-only>
+            <p class="subtitle is-6">{{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp($i18n.locale) }}</b></p>
+          </client-only>
         </div>
       </div>
       <section class="container content">

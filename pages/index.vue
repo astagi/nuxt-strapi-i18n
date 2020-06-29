@@ -3,7 +3,9 @@
     <article v-for="post in posts" :key="post.slug" class="container is-fluid">
       <h2 class="title">{{ post.title }}</h2>
       <div>{{ $t('author') }} <b>{{ post.post.author.complete_name }}</b></div>
-      <div>{{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp }}</b></div>
+      <client-only>
+        <div>{{ $t('published') }} <b>{{ post.post.published | dataFromTimestamp($i18n.locale) }}</b></div>
+      </client-only>
       <nuxt-link :to="localePath({name: 'blog-slug', params:{slug: post.slug}})">{{ $t('readmore') }}</nuxt-link>
     </article>
   </section>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 Vue.filter(
   'dataFromTimestamp',
-  val => new Date(val).toLocaleDateString()
+  (val, locale) => new Date(val).toLocaleDateString(locale)
 )
 
 Vue.filter(
